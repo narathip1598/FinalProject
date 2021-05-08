@@ -12,6 +12,10 @@ from PIL import ImageFont
 from PIL import ImageOps
 import os
 from django.core.files.storage import FileSystemStorage
+from django.http.response import HttpResponse, HttpResponseRedirect
+
+def show_result(request):
+  return render(request,'result.html')
 
 def load_img(path):
   img = tf.io.read_file(path)
@@ -114,6 +118,8 @@ def index(request):
 
         image_with_boxes = draw_boxes(image.numpy(), result["detection_boxes"], result["detection_class_entities"], result["detection_scores"])
         display_image(image_with_boxes)
+        return HttpResponseRedirect('/result')
     else:
         form = UploadFileForm()
     return render(request,'index.html',{'form':form})
+
