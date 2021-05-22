@@ -1,13 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Result</title>
 </head>
-<body>
-    {{result_score}}<br>
-    <img src="{{url}}">
+
+<body style="background-image: url('https://image.freepik.com/free-photo/nature-colorful-landscape-dusk-cloud_1203-5705.jpg')
+;background-repeat: no-repeat; background-size: 100%; width: auto; height: auto;">
+
+    <div>
+
+        <header style="display: flex; 
+        justify-content: center; 
+        text-align: center;
+        width: 100%; 
+        height: 130px; 
+        background-color: black;
+        opacity: 0.6;
+        margin: auto;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        margin-top: 8%;">
+        
+            <h2 style="color: aliceblue; 
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 48px;">Result</h2>
+
+        </header>
+
+        <div
+        style="background-color: black;
+        opacity: 0.6;
+        width: 100%; 
+        padding-bottom: 2%;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        margin-bottom: 2.5%;"
+        >
+                <div style="
+                display: flex;
+                text-align: center;
+                justify-content: center;
+                color: aliceblue;
+                font-size: 30px;
+                padding-top: 10px;
+                padding-bottom: 20px;">
+                
+                {{result_score}}           
+
+                </div>
+
+                <div style="
+                display: flex;
+                text-align: center;
+                justify-content: center;"             
+            >
+
+                    <img src="{{url}}"
+                    style="width: 688px;
+                    height: 360px;"
+                    >
+                </div>
+
+        </div>
+    </div>
+
+</div>
+
 </body>
+
 </html>
