@@ -45,7 +45,7 @@ val_data = tf.keras.preprocessing.image_dataset_from_directory(
   batch_size=batch_size)
 
 class_names = train_data.class_names
-print(class_names)
+
 
 
 AUTOTUNE = tf.data.AUTOTUNE
@@ -78,12 +78,8 @@ def index(request):
         img_array = tf.expand_dims(img_array, 0) # Create a batch
         predictions = model.predict(img_array)
         score = tf.nn.softmax(predictions[0])
-        print(
-          "This image most likely belongs to {} with a {:.2f} percent confidence."
-            .format(class_names[np.argmax(score)], 100 * np.max(score))
-        )
-        return HttpResponse("This image most likely belongs to {} with a {:.2f} percent confidence."
-            .format(class_names[np.argmax(score)], 100 * np.max(score)))
+        result_score = "This image most likely belongs to {} with a {:.2f} percent confidence.".format(class_names[np.argmax(score)], 100 * np.max(score))
+        return render(request,'result.html',{'result_score':result_score,'url':url})
     else:
         form = UploadFileForm()
     return render(request,'index.html',{'form':form})
